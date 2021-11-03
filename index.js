@@ -10,8 +10,8 @@ async function start() {
 };
 
 async function preprocessData() {
-  let users = await DataService.getData('users');
-  let posts = await DataService.getData('posts', 100);
+  let users = await DataService.getData('users', 5);
+  let posts = await DataService.getData('posts', 50);
 
   posts = posts.map(post => {
     const currentPost = {
@@ -31,9 +31,9 @@ async function preprocessData() {
     }
   });
 
-  let user2 = users.find(user => user.id === 2);
+  const user2 = users.find(user => user.id === 2);
 
-  let user2PostsCommentsPromisses = [];
+  const user2PostsCommentsPromisses = [];
 
   user2.posts.forEach(post => {
     user2PostsCommentsPromisses.push(DataService.getData(`posts/${post.id}/comments`));
