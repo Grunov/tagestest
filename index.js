@@ -10,8 +10,8 @@ async function start() {
 };
 
 async function preprocessData() {
-  let users = await DataService.getData('users', 5);
-  let posts = await DataService.getData('posts', 50);
+  let users = await DataService.getData('users');
+  let posts = await DataService.getData('posts', 100);
 
   posts = posts.map(post => {
     const currentPost = {
